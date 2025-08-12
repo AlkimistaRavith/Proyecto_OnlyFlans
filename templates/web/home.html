@@ -8,6 +8,7 @@
     {% include 'web/components/scripts.html' %}
 </head>
 <body class="d-flex flex-column min-vh-100">
+    {% include 'web/components/header.html' %}
     {% include 'web/components/navbar.html' %}
     <main class="container py-4 flex-grow-1">
         <h1>Flanes!</h1>
@@ -20,6 +21,8 @@
         {% endfor %}
 
     </main>
+
+
     {% include 'web/components/footer.html' %}
 </body>
 </html>
