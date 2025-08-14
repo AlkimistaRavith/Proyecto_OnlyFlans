@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section class="py-5">
+            <div class="container px-4 px-lg-5 mt-5">
+                
+                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                    {% for flanp in flanes_premium %}
+                    <div class="col mb-5">
+                        <div class="card h-100">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">{{flanp.nombre_producto}}</h5>
+                                <!-- Product price-->
+                            </div>
+                            <!-- Product image-->
+                            <img class="card-img-top" src="{{flanp.imagen.url}}" alt="..." />
+                            <!-- Product details-->
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <!-- Product name-->
+                                    <p class="descripcion">{{flanp.descripcion}}</p>
+                                    <!-- Product price-->
+                                    <p class="precio fw-bolder">${{flan.precio}}</p>
+                                </div>
+                            </div>
+                            <div class="card-body text-center">
+                                <a href="#" class="card-link">Card link</a>
+                                <a href="#" class="card-link">Another link</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+</body>
+</html>

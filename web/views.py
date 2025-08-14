@@ -5,10 +5,12 @@ from .models import Producto
 # Create your views here.
 
 def home(request):
-    flanes = Producto.objects.all()
-    return render(request, "web/home.html", {"flanes": flanes})
+    flanes_publicos = Producto.objects.filter(is_private=False)
+    return render(request, "web/home.html", {"flanes_publicos": flanes_publicos})
 
 
 @login_required
 def home_premium(request):
-    return render(request, "web/home_premium.html", {})
+    flanes_publicos = Producto.objects.filter(is_private=False)
+    flanes_premium = Producto.objects.filter(is_private=True)
+    return render(request, "web/home.html", {"flanes_premium": flanes_premium, "flanes_publicos": flanes_publicos})

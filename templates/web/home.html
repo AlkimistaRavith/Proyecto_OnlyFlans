@@ -10,15 +10,9 @@
 <body class="d-flex flex-column min-vh-100">
     {% include 'web/components/header.html' %}
     {% include 'web/components/navbar.html' %}
-    <main class="container py-4 flex-grow-1">
-        <h1>Flanes!</h1>
-        {% for flan in flanes %}
-            <h3>{{ flan.nombre_producto }}</h3>
-            <img src="{{flan.imagen.url}}" width="250" alt="">
-            <li>{{ flan.descripcion }}</li>
-            <li>{{ flan.precio }}</li>
-
-        {% endfor %}
+    
+    
+    {% include 'web/components/flanes_publicos.html' %}
 
     </main>
 
