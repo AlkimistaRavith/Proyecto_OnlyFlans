@@ -13,4 +13,4 @@ def home(request):
 def home_premium(request):
     flanes_publicos = Producto.objects.filter(is_private=False)
     flanes_premium = Producto.objects.filter(is_private=True)
-    return render(request, "web/home.html", {"flanes_premium": flanes_premium, "flanes_publicos": flanes_publicos})
+    return render(request, "web/home_premium.html", {"flanes_premium": flanes_premium, "flanes_publicos": flanes_publicos})

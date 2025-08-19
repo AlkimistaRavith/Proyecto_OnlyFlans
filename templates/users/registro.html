@@ -6,10 +6,15 @@
     <title>Document</title>
 </head>
 <body>
+    {% include 'web/components/header.html' %}
+    {% include 'web/components/navbar.html' %}
+
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Registrar</button>
     </form>
+
+    {% include 'web/components/footer.html' %}
 </body>
 </html>
