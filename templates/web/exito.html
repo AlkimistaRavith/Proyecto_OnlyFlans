@@ -13,11 +13,23 @@
 
     {% block 'content' %}
     <div class="container">
-        <h1>Gracias pro contactarte con OnlyFlans.</h1>
-        <h3>Pronto te daremos una respuesta.</h3>
-        <a href="{% url 'home' %}">
-            <button type="button">Regresar al Inicio</button>
-        </a>
+        <div class="col-12 col-md-6 offset-0 offset-md-3 mt-5 mb-5">
+            <div class="card shadow-lg rounded-4 border-0">
+                <div class="card-body p-4 text-center">
+                    
+                    <!-- Título -->
+                    <h3 class="mb-4 titulo">✅ Gracias por contactarte con OnlyFlans</h3>
+                    
+                    <!-- Mensaje -->
+                    <h5 class="mb-4">Pronto te daremos una respuesta.</h5>
+
+                    <!-- Botón -->
+                    <a href="{% url 'home' %}" class="btn button btn-lg rounded-3 shadow-sm">
+                        Regresar al Inicio
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
     {% endblock %}
 

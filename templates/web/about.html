@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% include 'web/components/scripts.html' %}
+</head>
+<body class="d-flex flex-column min-vh-100">
+    {% include 'web/components/header.html' %}
+    {% include 'web/components/navbar.html' %}
+    <main class="container py-4 flex-grow-1">
+
+        <div class="container mt-5 mb-5">
+            <div class="card shadow-lg rounded-4 border-0">
+                <div class="card-body p-4">
+                    <h2 class="text-center mb-4 titulo">🥮 Acerca de Nosotros</h2>
+
+                    <p class="fs-5">
+                        En <strong>OnlyFlans</strong> nos apasiona crear <strong>flanes únicos</strong>, 
+                        elaborados con recetas caseras y un toque especial en cada preparación. 
+                        Nuestro objetivo es ofrecerte una <strong>experiencia de sabor</strong> 
+                        que combine tradición y creatividad.
+                    </p>
+
+                    <h4 class="mt-4">🍮 Lo que hacemos</h4>
+                    <p>
+                        Producimos <strong>postres a pedido</strong>, principalmente flanes de 
+                        diversos sabores según nuestro catálogo. Cada uno está elaborado con 
+                        ingredientes frescos y seleccionados para garantizar la mejor calidad.
+                    </p>
+
+                    <h4 class="mt-4">👩‍🍳 Cómo lo hacemos</h4>
+                    <p>
+                        Todas nuestras preparaciones son <strong>fabricaciones a pedido</strong>, 
+                        siguiendo recetas caseras. Buscamos que cada bocado sea una experiencia 
+                        única, explorando una <strong>diversidad de sabores</strong> que sorprenda 
+                        a nuestros clientes.
+                    </p>
+
+                    <h4 class="mt-4">🛒 Cómo vendemos</h4>
+                    <p>
+                        Nuestro fuerte es la <strong>venta por encargo</strong>, pero también 
+                        ofrecemos flanes directamente en <strong>vitrina</strong> en nuestro local 
+                        como un plus para quienes nos visitan.  
+                        En la página podrás ver nuestras recetas y preparaciones más comunes, y 
+                        si te registras, tendrás acceso a <strong>preparaciones exclusivas</strong> 
+                        con sabores especiales y dedicados.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </main>
+    {% include 'web/components/footer.html' %}
+</body>
+</html>

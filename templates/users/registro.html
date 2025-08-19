@@ -10,11 +10,56 @@
     {% include 'web/components/header.html' %}
     {% include 'web/components/navbar.html' %}
 
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Registrar</button>
-    </form>
+    <div class="container">
+        <div class="col-12 col-md-6 offset-0 offset-md-3 mt-5 mb-5">
+            <div class="card shadow-lg rounded-4 border-0">
+                <div class="card-body p-4">
+
+                    <!-- Título -->
+                    <h3 class="text-center mb-4 titulo">📝 Crear una cuenta</h3>
+                    <p class="text-center text-muted mb-4">
+                        Completa el siguiente formulario para registrarte en OnlyFlans.
+                    </p>
+
+                    <!-- Formulario -->
+                    <form method="post">
+                        {% csrf_token %}
+                        
+                        <!-- Errores generales -->
+                        {% if form.non_field_errors %}
+                            <div class="alert alert-danger">
+                                {{ form.non_field_errors }}
+                            </div>
+                        {% endif %}
+
+                        <!-- Campos -->
+                        {% for field in form %}
+                            <div class="mb-3">
+                                <label for="{{ field.id_for_label }}" class="form-label fw-semibold">
+                                    {{ field.label }}
+                                </label>
+                                {{ field }}
+                                {% if field.help_text %}
+                                    <div class="form-text">{{ field.help_text }}</div>
+                                {% endif %}
+                                {% if field.errors %}
+                                    <div class="text-danger small">{{ field.errors }}</div>
+                                {% endif %}
+                            </div>
+                        {% endfor %}
+
+                        <!-- Botón -->
+                        <div class="d-grid">
+                            <button type="submit" class="button btn btn-lg rounded-3 shadow-sm">
+                                Registrar
+                            </button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
 
     {% include 'web/components/footer.html' %}
 </body>

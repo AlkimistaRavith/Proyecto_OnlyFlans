@@ -32,3 +32,6 @@ def contacto(request):
 
 def exito(request):
     return render(request, "web/exito.html", {})
+
+def about(request):
+    return render(request, "web/about.html", {})
