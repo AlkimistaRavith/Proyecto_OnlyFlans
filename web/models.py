@@ -16,3 +16,11 @@ class Producto(models.Model):
     def __str__(self):
         return self.nombre_producto
     
+
+class ContactData(models.Model):
+    contact_form_uuid = models.UUIDField(default=uuid.uuid4, editable=False)
+    customer_email = models.EmailField()
+    customer_name = models.CharField(max_length=64)
+    message = models.TextField()
+
+

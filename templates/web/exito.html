@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,11 +11,15 @@
     {% include 'web/components/header.html' %}
     {% include 'web/components/navbar.html' %}
 
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Ingresar</button>
-    </form>
+    {% block 'content' %}
+    <div class="container">
+        <h1>Gracias pro contactarte con OnlyFlans.</h1>
+        <h3>Pronto te daremos una respuesta.</h3>
+        <a href="{% url 'home' %}">
+            <button type="button">Regresar al Inicio</button>
+        </a>
+    </div>
+    {% endblock %}
 
     {% include 'web/components/footer.html' %}
 </body>

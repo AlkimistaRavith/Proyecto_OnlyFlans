@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% include 'web/components/scripts.html' %}
+</head>
+<body>
+    {% include 'web/components/header.html' %}
+    {% include 'web/components/navbar.html' %}
+
+    {% block 'content' %}
+    <div class="container">
+        <div class="col-12 col-md-6 offset-0 offset-md-3 mt-5 mb-5">
+            <div class="card shadow-lg rounded-4 border-0">
+                <div class="card-body p-4">
+                    
+                    <!-- Título -->
+                    <h3 class="text-center mb-4 text-primary">📩 Contáctanos</h3>
+
+                    <!-- Formulario -->
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ form.non_field_errors }}
+
+                        <!-- Nombre -->
+                        <div class="mb-3">
+                            <label for="{{ form.customer_name.id_for_label }}" class="form-label fw-semibold">
+                                {{ form.customer_name.label }}
+                            </label>
+                            {{ form.customer_name }}
+                            <div class="text-danger small">
+                                {{ form.customer_name.errors }}
+                            </div>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="mb-3">
+                            <label for="{{ form.customer_email.id_for_label }}" class="form-label fw-semibold">
+                                {{ form.customer_email.label }}
+                            </label>
+                            {{ form.customer_email }}
+                            <div class="text-danger small">
+                                {{ form.customer_email.errors }}
+                            </div>
+                        </div>
+
+                        <!-- Mensaje -->
+                        <div class="mb-3">
+                            <label for="{{ form.message.id_for_label }}" class="form-label fw-semibold">
+                                {{ form.message.label }}
+                            </label>
+                            {{ form.message }}
+                            <div class="text-danger small">
+                                {{ form.message.errors }}
+                            </div>
+                        </div>
+
+                        <!-- Botón -->
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary btn-lg rounded-3 shadow-sm">
+                                Enviar Mensaje
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+
+    {% include 'web/components/footer.html' %}
+</body>
+</html>
