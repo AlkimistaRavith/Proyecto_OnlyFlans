@@ -1,5 +1,6 @@
 from django.db import models
 import uuid
+from decimal import Decimal, ROUND_HALF_UP
 
 # Create your models here.
 
@@ -13,20 +14,22 @@ class Producto(models.Model):
     slug = models.SlugField(default="", null=False, blank=False)
     is_private = models.BooleanField(default=False) #corresponde a productos premium o no
 
+    def calcular_precio(self, unidades, descuento):
+        """Calcula precio total con descuento, sin decimales."""
+        total = (self.precio * unidades) * (Decimal(1) - Decimal(descuento))
+        return int(total.quantize(Decimal('1'), rounding=ROUND_HALF_UP))
+
     @property
     def precio_10u(self):
-        """Precio total para 10 unidades con 10% de descuento."""
-        return (self.precio * 10) * 0.9
+        return self.calcular_precio(10, 0.10)
 
     @property
     def precio_15u(self):
-        """Precio total para 15 unidades con 15% de descuento."""
-        return (self.precio * 15) * 0.85
+        return self.calcular_precio(15, 0.15)
 
     @property
     def precio_20u(self):
-        """Precio total para 20 unidades con 15% de descuento."""
-        return (self.precio * 20) * 0.85
+        return self.calcular_precio(20, 0.15)
 
     def __str__(self):
         return self.nombre_producto

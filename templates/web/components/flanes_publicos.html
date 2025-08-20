@@ -30,17 +30,17 @@
                             <p class="descripcion text-muted small mb-3">{{ flan.descripcion }}</p>
                             <div class="precio text-center">
                                 <p class="fw-bold text-primary mb-1">
-                                    ${{ producto.precio_10u }} <span class="text-muted small">x10u</span>
+                                    ${{ flan.precio_10u }} <span class="text-muted small">x10u</span>
                                 </p>
                                 <p class="fw-bold text-success mb-0">
-                                    ${{ producto.precio_20u }} <span class="text-muted small">x20u</span>
+                                    ${{ flan.precio_20u }} <span class="text-muted small">x20u</span>
                                 </p>
                             </div>
                         </div>
 
                         <!-- Acciones -->
                         <div class="card-footer bg-transparent border-0 text-center pb-4">
-                            <a href="#" class="btn button btn-outline-primary btn-sm rounded-3 shadow-sm me-2">Ver más</a>
+                            <a href="{% url 'detalle_producto' flan.slug %}" class="btn button btn-outline-primary btn-sm rounded-3 shadow-sm me-2">Ver más</a>
                             <a href="#" class="btn button btn-primary btn-sm rounded-3 shadow-sm">Comprar</a>
                         </div>
                     </div>

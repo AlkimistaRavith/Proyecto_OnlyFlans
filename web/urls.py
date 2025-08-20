@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import home, home_premium, contacto, exito, about
+from .views import home, home_premium, contacto, exito, about, detalle_producto
 
 urlpatterns = [
     path("", home, name="home"),
@@ -7,4 +7,5 @@ urlpatterns = [
     path("contacto/", contacto, name="contacto"),
     path("exito/", exito, name="exito"),
     path("about/", about, name="about"),
+    path('detalle_flan/<slug:slug>/', detalle_producto, name='detalle_producto'),
 ]

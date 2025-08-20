@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .models import Producto, ContactData
 from .forms import ContactDataForm
@@ -35,3 +35,7 @@ def exito(request):
 
 def about(request):
     return render(request, "web/about.html", {})
+
+def detalle_producto(request, slug):
+    producto = get_object_or_404(Producto, slug=slug)
+    return render(request, 'web/detalle_producto.html', {'producto': producto})
