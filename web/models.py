@@ -13,6 +13,21 @@ class Producto(models.Model):
     slug = models.SlugField(default="", null=False, blank=False)
     is_private = models.BooleanField(default=False) #corresponde a productos premium o no
 
+    @property
+    def precio_10u(self):
+        """Precio total para 10 unidades con 10% de descuento."""
+        return (self.precio * 10) * 0.9
+
+    @property
+    def precio_15u(self):
+        """Precio total para 15 unidades con 15% de descuento."""
+        return (self.precio * 15) * 0.85
+
+    @property
+    def precio_20u(self):
+        """Precio total para 20 unidades con 15% de descuento."""
+        return (self.precio * 20) * 0.85
+
     def __str__(self):
         return self.nombre_producto
     

@@ -35,10 +35,26 @@
             background-color: rgb(206, 240, 198);
         }
         .button {
-            background-color: rgb(111, 91, 156);
+            background-color: rgb(111, 91, 156); /* color base */
+            color: #fff; /* texto blanco */
+            border: none; /* sin borde */
+            transition: all 0.3s ease; /* suaviza el cambio */
+        }
+
+        .button:hover {
+            background-color: rgb(92, 73, 136); /* un poco más oscuro al pasar el mouse */
+            transform: scale(1.03); /* efecto de aumento leve */
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* sombra más marcada */
+        }
+
+        .button:active {
+            transform: scale(0.97); /* efecto de clic */
         }
         .titulo {
             color: rgb(90, 64, 151);
+        }
+        .precio {
+            color: rgb(29, 16, 58);
         }
     </style>
 </body>

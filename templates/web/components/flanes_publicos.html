@@ -7,37 +7,47 @@
 </head>
 <body>
     <section class="py-5">
-            <div class="container px-4 px-lg-5 mt-5">
-                
-                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-                    {% for flan in flanes_publicos %}
-                    <div class="col mb-5">
-                        <div class="card h-100">
-                            <div class="text-center">
-                                <!-- Product name-->
-                                <h5 class="fw-bolder">{{flan.nombre_producto}}</h5>
-                                <!-- Product price-->
-                            </div>
-                            <!-- Product image-->
-                            <img class="card-img-top" src="{{flan.imagen.url}}" alt="..." />
-                            <!-- Product details-->
-                            <div class="card-body p-4">
-                                <div class="text-center">
-                                    <!-- Product name-->
-                                    <p class="descripcion">{{flan.descripcion}}</p>
-                                    <!-- Product price-->
-                                    <p class="precio fw-bolder">${{flan.precio}}</p>
-                                </div>
-                            </div>
-                            <div class="card-body text-center">
-                                <a href="#" class="card-link">Card link</a>
-                                <a href="#" class="card-link">Another link</a>
+        <div class="container px-4 px-lg-5 mt-5">
+            
+            <!-- Título -->
+            <h3 class="text-center mb-4 titulo">🍮 Nuestros Flanes</h3>
+            <p class="text-center text-muted mb-5">
+                Descubre la variedad de sabores disponibles en OnlyFlans.
+            </p>
+
+            <!-- Grid de productos -->
+            <div class="row gx-4 gx-lg-5 row-cols-1 row-cols-md-2 row-cols-xl-4 justify-content-center">
+                {% for flan in flanes_publicos %}
+                <div class="col mb-5">
+                    <div class="card shadow-lg rounded-4 border-0 h-100">
+                        
+                        <!-- Imagen -->
+                        <img class="card-img-top rounded-top-4" src="{{ flan.imagen.url }}" alt="{{ flan.nombre_producto }}" style="height: 200px; object-fit: cover;">
+                        
+                        <!-- Detalles -->
+                        <div class="card-body p-4 text-center">
+                            <h5 class="titulo fw-bold mb-2">{{ flan.nombre_producto }}</h5>
+                            <p class="descripcion text-muted small mb-3">{{ flan.descripcion }}</p>
+                            <div class="precio text-center">
+                                <p class="fw-bold text-primary mb-1">
+                                    ${{ producto.precio_10u }} <span class="text-muted small">x10u</span>
+                                </p>
+                                <p class="fw-bold text-success mb-0">
+                                    ${{ producto.precio_20u }} <span class="text-muted small">x20u</span>
+                                </p>
                             </div>
                         </div>
+
+                        <!-- Acciones -->
+                        <div class="card-footer bg-transparent border-0 text-center pb-4">
+                            <a href="#" class="btn button btn-outline-primary btn-sm rounded-3 shadow-sm me-2">Ver más</a>
+                            <a href="#" class="btn button btn-primary btn-sm rounded-3 shadow-sm">Comprar</a>
+                        </div>
                     </div>
-                    {% endfor %}
                 </div>
+                {% endfor %}
             </div>
-        </section>
+        </div>
+    </section>
 </body>
 </html>
