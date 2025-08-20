@@ -8,41 +8,106 @@
     {% include 'web/components/scripts.html' %}
 </head>
 <body class="d-flex flex-column min-vh-100">
+    <!-- header -->
     {% include 'web/components/header.html' %}
+    <!-- navbar -->
     {% include 'web/components/navbar.html' %}
     
-    <div class="container mt-4">
-        <h2 class="mb-4">Realizar Pedido</h2>
-        <form method="post">
-            {% csrf_token %}
-            <div class="mb-3">
-                {{ form.nombre.label_tag }}
-                {{ form.nombre }}
+    {% block 'content' %}
+    <div class="container">
+        <div class="col-12 col-md-6 offset-0 offset-md-3 mt-5 mb-5">
+            <div class="card shadow-lg rounded-4 border-0">
+                <div class="card-body p-4">
+
+                    <!-- Título -->
+                    <h3 class="text-center mb-4 titulo">🛒 Realizar Pedido</h3>
+
+                    <!-- Formulario -->
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ form.non_field_errors }}
+
+                        <!-- Nombre -->
+                        <div class="mb-3">
+                            <label for="{{ form.nombre.id_for_label }}" class="form-label fw-semibold">
+                                {{ form.nombre.label }}
+                            </label>
+                            {{ form.nombre }}
+                            <div class="text-danger small">
+                                {{ form.nombre.errors }}
+                            </div>
+                        </div>
+
+                        <!-- Correo -->
+                        <div class="mb-3">
+                            <label for="{{ form.correo.id_for_label }}" class="form-label fw-semibold">
+                                {{ form.correo.label }}
+                            </label>
+                            {{ form.correo }}
+                            <div class="text-danger small">
+                                {{ form.correo.errors }}
+                            </div>
+                        </div>
+
+                        <!-- Producto -->
+                        <div class="mb-3">
+                            <label for="{{ form.producto.id_for_label }}" class="form-label fw-semibold">
+                                {{ form.producto.label }}
+                            </label>
+                            {{ form.producto }}
+                            <div class="text-danger small">
+                                {{ form.producto.errors }}
+                            </div>
+                        </div>
+
+                        <!-- Cantidad -->
+                        <div class="mb-3">
+                            <label for="{{ form.cantidad.id_for_label }}" class="form-label fw-semibold">
+                                {{ form.cantidad.label }}
+                            </label>
+                            {{ form.cantidad }}
+                            <div class="text-danger small">
+                                {{ form.cantidad.errors }}
+                            </div>
+                        </div>
+
+                        <!-- Fecha de Entrega -->
+                        <div class="mb-3">
+                            <label for="{{ form.fecha_entrega.id_for_label }}" class="form-label fw-semibold">
+                                {{ form.fecha_entrega.label }}
+                            </label>
+                            {{ form.fecha_entrega }}
+                            <div class="text-danger small">
+                                {{ form.fecha_entrega.errors }}
+                            </div>
+                        </div>
+
+                        <!-- Dirección -->
+                        <div class="mb-3">
+                            <label for="{{ form.direccion.id_for_label }}" class="form-label fw-semibold">
+                                {{ form.direccion.label }}
+                            </label>
+                            {{ form.direccion }}
+                            <div class="text-danger small">
+                                {{ form.direccion.errors }}
+                            </div>
+                        </div>
+
+                        <!-- Botón -->
+                        <div class="d-grid">
+                            <button type="submit" class="button btn btn-lg rounded-3 shadow-sm">
+                                Confirmar compra
+                            </button>
+                        </div>
+                    </form>
+
+                </div>
             </div>
-            <div class="mb-3">
-                {{ form.correo.label_tag }}
-                {{ form.correo }}
-            </div>
-            <div class="mb-3">
-                {{ form.producto.label_tag }}
-                {{ form.producto }}
-            </div>
-            <div class="mb-3">
-                {{ form.cantidad.label_tag }}
-                {{ form.cantidad }}
-            </div>
-            <div class="mb-3">
-                {{ form.fecha_entrega.label_tag }}
-                {{ form.fecha_entrega }}
-            </div>
-            <div class="mb-3">
-                {{ form.direccion.label_tag }}
-                {{ form.direccion }}
-            </div>
-            <button type="submit" class="btn btn-primary">Confirmar compra</button>
-        </form>
+        </div>
     </div>
+    {% endblock %}
     
+    <!-- footer -->
     {% include 'web/components/footer.html' %}
 </body>
 </html>
