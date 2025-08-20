@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% include 'web/components/scripts.html' %}
+</head>
+<body>
+    {% include 'web/components/header.html' %}
+    {% include 'web/components/navbar.html' %}
+
+    {% block 'content' %}
+    <div class="container">
+        <div class="col-12 col-md-6 offset-0 offset-md-3 mt-5 mb-5">
+            <div class="card shadow-lg rounded-4 border-0">
+                <div class="card-body p-4 text-center">
+                    
+                    <!-- Título -->
+                    <h3 class="mb-4 titulo">✅ Gracias por preferir OnlyFlans</h3>
+                    
+                    <!-- Mensaje -->
+                    <h5 class="mb-4">Tu pedido se ha registrado con éxito. Pronto te contactaremos para confirmar tu pedido y detalles de entrega.</h5>
+
+                    <!-- Botón -->
+                    <a href="{% url 'home' %}" class="btn button btn-lg rounded-3 shadow-sm">
+                        Regresar al Inicio
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+
+    {% include 'web/components/footer.html' %}
+</body>
+</html>

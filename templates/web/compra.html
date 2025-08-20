@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% include 'web/components/scripts.html' %}
+</head>
+<body class="d-flex flex-column min-vh-100">
+    {% include 'web/components/header.html' %}
+    {% include 'web/components/navbar.html' %}
+    
+    <div class="container mt-4">
+        <h2 class="mb-4">Realizar Pedido</h2>
+        <form method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+                {{ form.nombre.label_tag }}
+                {{ form.nombre }}
+            </div>
+            <div class="mb-3">
+                {{ form.correo.label_tag }}
+                {{ form.correo }}
+            </div>
+            <div class="mb-3">
+                {{ form.producto.label_tag }}
+                {{ form.producto }}
+            </div>
+            <div class="mb-3">
+                {{ form.cantidad.label_tag }}
+                {{ form.cantidad }}
+            </div>
+            <div class="mb-3">
+                {{ form.fecha_entrega.label_tag }}
+                {{ form.fecha_entrega }}
+            </div>
+            <div class="mb-3">
+                {{ form.direccion.label_tag }}
+                {{ form.direccion }}
+            </div>
+            <button type="submit" class="btn btn-primary">Confirmar compra</button>
+        </form>
+    </div>
+    
+    {% include 'web/components/footer.html' %}
+</body>
+</html>

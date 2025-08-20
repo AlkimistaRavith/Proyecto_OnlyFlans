@@ -1,7 +1,7 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from .models import Producto, ContactData
-from .forms import ContactDataForm
+from .forms import ContactDataForm, CompraForm
 from django.http import HttpResponseRedirect
 
 # Create your views here.
@@ -30,6 +30,7 @@ def contacto(request):
     
     return render(request, 'web/contacto.html', {'form': form})
 
+
 def exito(request):
     return render(request, "web/exito.html", {})
 
@@ -39,3 +40,17 @@ def about(request):
 def detalle_producto(request, slug):
     producto = get_object_or_404(Producto, slug=slug)
     return render(request, 'web/detalle_producto.html', {'producto': producto})
+
+def compra(request):
+    if request.method == "POST":
+        form = CompraForm(request.POST, usuario=request.user)
+        if form.is_valid():
+            # Guardar datos o redirigir a confirmación
+            return redirect("compra_confirmada")  # o página de gracias
+    else:
+        form = CompraForm(usuario=request.user)
+
+    return render(request, "web/compra.html", {"form": form})
+
+def compra_confirmada(request):
+    return render(request, "web/compra_confirmada.html", {})
